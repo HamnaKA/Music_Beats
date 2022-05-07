@@ -1,0 +1,33 @@
+{% extends 'companybase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color:white;
+}
+</style>
+<div style="margin: 50px;">
+    <h2 style="margin: 10px;">Lyrics</h2>
+    <table  >
+        {% for d in data %}
+        <tr>
+            <td>{{d.1}}</td></tr>
+            <tr>
+            <td>
+                <a href="/companyupdatelyrics?id={{d.0}}&status=1">Approve</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/companyupdatelyrics?id={{d.0}}&status=-1">Reject</a>
+            </td> 
+        </tr>
+        {% endfor %}
+    </table>
+    
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+</script>
+{% endblock %}

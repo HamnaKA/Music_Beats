@@ -1,0 +1,71 @@
+
+{% extends 'companybase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color: white;
+}
+</style>
+<div style="margin: 50px;">
+    <h2 style="margin: 10px;">Music</h2><hr>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+     
+            <tr>
+                <td>Name</td>
+                <td><input type="text" class="form-control" name="txtName"  required pattern="[a-zA-Z ]+"></td>
+            </tr>
+            <tr>
+                <td>Film Name</td>
+                <td><input type="text" class="form-control" name="txtFilm"  required ></td>
+            </tr>
+            <tr>
+                <td>Duration in minutes</td>
+                <td><input type="text" class="form-control" name="txtDuration" required ></td>
+            </tr>
+            <tr>
+                <td>Language</td>
+                <td><input type="text" class="form-control" name="txtLanguage" required ></td>
+            </tr>
+            <tr>
+                <td>Release Date</td>
+                <td><input type="date" class="form-control"  name="txtRelease"  required></td>
+            </tr>
+            <tr>
+                <td>Album</td>
+                <td><input type="text" class="form-control"  name="txtAlbum"  required></td>
+            </tr>
+            <tr>
+                <td>Singer</td>
+                <td><input type="text" class="form-control"  name="txtSinger"  required></td>
+            </tr>
+            <tr>
+                <td>Composer</td>
+                <td><input type="text" class="form-control"  name="txtComposer"  required></td>
+            </tr>
+            <tr>
+                <td>Lyricist</td>
+                <td><input type="text" class="form-control"  name="txtLyricist"  required></td>
+            </tr>
+            <tr>
+                <td>Upload song</td>
+                <td><input type="file" class="form-control"  name="txtFile"  required></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-warning" style="color: white;" value="Submit"></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

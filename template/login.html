@@ -1,0 +1,36 @@
+{% extends 'commonbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color:white;
+}
+</style>
+<div style="margin: 50px;">
+    <h2 style="margin: 10px;">Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Username</td>
+                <td><input type="email" class="form-control" name="txtEmail" required></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" class="form-control" name="txtPassword" required></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-warning" style="color: white;" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

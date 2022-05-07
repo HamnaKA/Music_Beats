@@ -1,0 +1,40 @@
+{% extends 'companybase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color:white;
+}
+</style>
+<div style="margin: 50px;">
+    <h2 style="margin: 10px;">Lyrics request</h2>
+    <table border="1" >
+        <tr>
+            <th>SONG</th>
+            <th>FILM</th>
+            <th>DURATION</th>
+            <th colspan="2">SINGER</th>
+            
+        </tr>
+        {% for d in data %}
+        <tr>
+           
+            <td>{{d.1}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+            <td>{{d.7}}</td>
+            <td><a href="/companyviewlyrics?id={{d.0}}">View lyrics</a></td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+    
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+</script>
+{% endblock %}

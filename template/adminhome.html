@@ -1,0 +1,19 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color:white;
+}
+</style>
+<div style="margin: 50px;">
+    <h2 style="margin: 10px;">Welcome</h2>
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+</script>
+{% endblock %}

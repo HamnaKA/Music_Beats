@@ -1,0 +1,35 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color:white;
+}
+</style>
+<div style="margin: 50px;">
+    <h2 style="margin: 10px;">User</h2>
+    <table border="1" >
+        <tr>
+            <th>NAME</th>
+            <th>ADDRESS</th>
+            <th>CONTACT</th>
+            <th>EMAIL</th>
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td>{{d.0}}</td>
+            <td>{{d.1}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+</script>
+{% endblock %}

@@ -1,0 +1,54 @@
+
+{% extends 'commonbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color: white;
+}
+</style>
+<div style="margin: 50px;">
+    <h2 style="margin: 10px;">Company Registration</h2><hr>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" class="form-control" name="txtName" required pattern="[a-zA-Z ]+"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><textarea name="txtAddress" class="form-control" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td><input type="text" class="form-control" name="txtContact" required pattern="[6789][0-9]{9}"></td>
+            </tr>
+            <tr>
+                <td>License</td>
+                <td><input type="text" class="form-control" name="txtLicense" required ></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" class="form-control" name="txtEmail" required></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" class="form-control" name="txtPassword" required></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-warning" style="color: white;" value="Register"></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

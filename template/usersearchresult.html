@@ -1,0 +1,32 @@
+{% extends 'userbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color:white;
+}
+</style>
+<div >
+    <h2 >Search result</h2>
+    <table  >
+        {% for d in data %}
+        
+        <tr><th>SONG</th><td>{{d.1}}</td></tr>
+        <tr><th>FILM</th><td>{{d.2}}</td></tr>
+        <tr><th>DURATION</th><td>{{d.3}}</td></tr>
+        <tr><th>SINGER</th><td>{{d.7}}</td></tr>
+        <tr><td colspan="2"><a href="/userviewsong?id={{d.0}}">View more</a></td></tr>
+        <br><br>
+        {% endfor %}
+
+    </table>
+    
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+</script>
+{% endblock %}

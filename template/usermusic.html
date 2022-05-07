@@ -1,0 +1,41 @@
+{% extends 'userbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color:white;
+}
+</style>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+    <tr><td><input type="text" class="form-control" style="width: 550px;" placeholder="Search song" name="txtSearch"></td>
+    <!-- <td><a href="/usersearch?"><img src="../static/images/flat-search-find-icon-13.png" height="50px"></a></td></tr> -->
+    <td><input type="submit" style="background-image: url(../static/images/flat-search-find-icon-13.png); background-size: cover; background-color: transparent; height: 35px; width: 40px; border: none;" value=""></td>
+    </table>
+</form>
+<br><br>
+<div >
+    <h2 >New releases</h2>
+    <table  >
+        {% for d in data %}
+        
+        <tr><th>SONG</th><td>{{d.1}}</td></tr>
+        <tr><th>FILM</th><td>{{d.2}}</td></tr>
+        <tr><th>DURATION</th><td>{{d.3}}</td></tr>
+        <tr><th>SINGER</th><td>{{d.7}}</td></tr>
+        <tr><td colspan="2"><a href="/userviewsong?id={{d.0}}">View more</a></td></tr>
+        <br><br>
+        {% endfor %}
+
+    </table>
+    
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+</script>
+{% endblock %}

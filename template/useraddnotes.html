@@ -1,0 +1,23 @@
+{% extends 'userbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color:white;
+}
+</style>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+    <tr><td><textarea name="txtLyrics" class="form-control" placeholder="Enter the musical notes" required></textarea></td></tr>
+    <tr><td><input type="submit" class="btn btn-warning" style="color: white;" value="Submit"></tr>
+    </table>
+</form>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+</script>
+{% endblock %}

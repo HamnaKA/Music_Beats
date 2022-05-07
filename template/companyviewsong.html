@@ -1,0 +1,43 @@
+{% extends 'companybase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+body{
+    color:white;
+}
+</style>
+<div style="margin: 50px;">
+    <h2 style="margin: 10px;">Songs</h2>
+    <table  >
+       
+        {% for d in data %}
+
+       
+            <tr><td colspan="2">
+                <audio controls="controls" src="../static{{d.10}}">
+                    <source src='../static{{d.10}}' type='audio/mp3' />
+                </audio>
+            </td></tr>
+            <tr><td>Song : </td><td>{{d.1}}</td></tr>
+            <tr><td>Film :</td><td>{{d.2}}</td></tr>
+            <tr><td>Duration :</td><td>{{d.3}}</td></tr>
+            <tr><td>Language :</td><td>{{d.4}}</td></tr>
+            <tr><td>Release Date :</td><td>{{d.5}}</td></tr>
+            <tr><td>Album :</td><td>{{d.6}}</td></tr>
+            <tr><td>Singer :</td><td>{{d.7}}</td></tr>
+            <tr><td>Composer :</td><td>{{d.8}}</td></tr>
+            <tr><td>Lyricist :</td><td>{{d.9}}</td></tr>
+            
+ 
+        {% endfor %}
+    </table>
+    
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg)
+</script>
+{% endblock %}
